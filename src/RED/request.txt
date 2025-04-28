@@ -1,0 +1,7 @@
+Rate:
+    sum(rate(request_duration_seconds_count{job="...."}[1m]))
+Errors:
+    #status_code不是2开头的状态码，3xx，4xx，5xx
+    sum(rate(request_duration_seconds_count{job="....",status_code!~"2.."[1m]}))
+Duration:
+    histogram_quantile(0.99, sum(rate(request_duration_seconds_bucket{job="...."[1m]})) by(le))

@@ -1,0 +1,7 @@
+Memory Utilisation
+# Memory Utilisation
+sum(node_memory_MemFree{job="..."} + node_memory_Cached{job="..."} + node_memory_Buffers{job="..."}) / sum(node_memory_MemTotal{job="..."})
+
+Memory Saturation
+# Memory Saturation
+1e3 * sum(rate(node_vmstat_pgpgin{job="..."}[1m]) + rate(node_vmstat_pgpgout{job="..."}[1m]))

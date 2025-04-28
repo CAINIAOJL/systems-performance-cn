@@ -1,0 +1,10 @@
+CPU Utilisation
+# CPU Utilisation
+avg(rate(node_cpu{job="default/node-exporter",mode="idle"}[1m]))
+
+CPU Saturation
+# CPU Saturation
+sum(node_load1{job="default/node-exporter"}) = sum(node:node_num_cpu:sum)
+
+
+
